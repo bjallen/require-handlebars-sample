@@ -1,5 +1,14 @@
-require(['vendor/wrappers/zepto-wrapper', 'app'], function($, app) {
+require({
+	paths: {
+		'zepto': 'vendor/wrappers/zepto',
+		'underscore': 'vendor/wrappers/underscore',
+		'backbone': 'vendor/wrappers/backbone',
+		'app': 'application'
+	}
+});
+
+require(['zepto', 'bootstrap', 'underscore'], function($, Bootstrap, _) {
 	$(function() {
-		app.initialize();
+		Bootstrap.initialize();
 	});
 });
