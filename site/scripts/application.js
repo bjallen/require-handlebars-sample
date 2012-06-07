@@ -1,4 +1,7 @@
-define(['underscore'],
+define(
+
+	['underscore'],
+
 	function(_) {
 		// namespaced object used for holding instantiated objects across the app
 		var Application = {

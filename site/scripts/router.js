@@ -5,7 +5,7 @@ define(
 
 	function(_, Backbone) {
 		var router = Backbone.Router.extend({
-			
+
 			routes: {
 				'': 'home',
 				'home': 'home'
@@ -23,9 +23,8 @@ define(
 			home: function() {
 				console.log('home fn');
 			}
-		}
-	);
+		});
 
-	return router;
-}
+		return router;
+	}
 );
