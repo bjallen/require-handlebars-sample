@@ -1,18 +1,29 @@
 require(
 	{
 		paths: {
-			'zepto': 'vendor/wrappers/zepto',
+			'jquery': 'vendor/wrappers/jquery',
 			'underscore': 'vendor/wrappers/underscore',
 			'backbone': 'vendor/wrappers/backbone',
-			'app': 'application'
+			'app': 'application',
+			'use': 'vendor/use',
+			'handlebars': 'vendor/handlebars',
+			'layoutmanager': 'vendor/backbone.layoutmanager',
+			'text': 'vendor/text'
+		},
+		
+		use: {
+			'layoutmanager': {
+				deps: ['backbone']
+			}
 		}
 	}
 );
 
 require(
-	['zepto',
+	['jquery',
 	'bootstrap',
-	'underscore'],
+	'underscore',
+	'config'],
 
 	function($, Bootstrap, _) {
 		$(function() {

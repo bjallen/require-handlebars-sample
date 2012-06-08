@@ -1,5 +1,4 @@
 define(
-
 	['underscore'],
 
 	function(_) {

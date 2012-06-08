@@ -1,27 +1,43 @@
 define(
 	['underscore',
 	'backbone',
-	'controllers/home_controller'],
+	'views/home_view',
+	'use!layoutmanager'],
 
-	function(_, Backbone) {
+	function(_, Backbone, HomeView) {
 		var router = Backbone.Router.extend({
+
+			initialize: function(options) {
+				/*this.routes = {
+				'': 'home',
+				'home': 'home'
+				};	
+				this._bindRoutes();*/
+			},
 
 			routes: {
 				'': 'home',
 				'home': 'home'
 			},
 
-			/*
-			initialize: function() {
-				this.routes = {
-					'home': 'home'
-				};	
-				this._bindRoutes();
-			}
-			*/
-
 			home: function() {
-				console.log('home fn');
+				var Person = Backbone.Model.extend({});
+				var me = new Person({
+					firstName: 'B.J.',
+					lastName: 'Allen'
+				});
+				
+				var main = new Backbone.LayoutManager({
+					template: 'main'
+				});
+				
+				main.setView('#view', new HomeView({model: me}));
+				window.main = main;
+				window.me = me;
+				
+				main.render(function(contents) {
+					$('#content').html(contents);
+				});
 			}
 		});
 
